@@ -79,3 +79,46 @@ def arrange_guest_arrival_order(arrival_pattern):
 
 print(arrange_guest_arrival_order("IIIDIDDD"))  
 print(arrange_guest_arrival_order("DDD")) 
+
+
+'''
+Balanced brackets
+'''
+'''
+UMPIRE
+
+Understand - Given a string of parens return bool  depending on if it is balanced
+Edge cases- 
+    1. empty input
+    2. non paranthesis character
+Match - useful data structure ( stack )
+Plan -
+
+Review - 
+Evaluate - 
+
+'''
+def is_balanced(strs):
+    if len(strs) == 0:
+        return False
+
+    stack = []
+
+    for i in strs:
+        if i == ')':
+            if len(stack) <= 0 or stack[-1] != '(':
+                return False
+            stack.pop()
+        else:
+            stack.append(i)
+    return len(stack) == 0
+
+print(is_balanced("(()))")) #False
+print(is_balanced("(((((((((((())))))))))))")) # True
+print(is_balanced(")(")) #False
+print(is_balanced(")(((()))")) #False
+print(is_balanced("   ")) #False
+
+ 
+        
+

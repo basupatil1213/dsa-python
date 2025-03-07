@@ -172,4 +172,89 @@ upper = 99
 print(find_missing_clues(clues, lower, upper))
 		   
 		
-	   
+'''
+Problem 6: Vegetable Harvest
+Rabbit is collecting carrots from his garden to make a feast for Pooh and friends. Write a function harvest() that accepts a 2D n x m matrix vegetable_patch and returns the number of of carrots that are ready to harvest in the vegetable patch. A carrot is ready to harvest if vegetable_patch[i][j] has value 'c'.
+
+Assume n = len(vegetable_patch) and m = len(vegetable_patch[0]). 0 <= i < n and 0 <= j < m.
+
+def harvest(vegetable_patch):
+	pass
+Example Usage:
+
+vegetable_patch = [
+	['x', 'c', 'x'],
+	['x', 'x', 'x'],
+	['x', 'c', 'c'],
+	['c', 'c', 'c']
+]
+harvest(vegetable_patch)
+Example Output:
+
+6
+'''
+
+def harvest(vegetable_patch):
+	r = len(vegetable_patch)
+	c = len(vegetable_patch[0])
+	carrots = 0
+	for i in range(r):
+		for j in range(c):
+			if vegetable_patch[i][j] == 'c':
+				carrots +=1 
+	
+	return carrots
+
+vegetable_patch = [
+	['x', 'c', 'x'],
+	['x', 'x', 'x'],
+	['x', 'c', 'c'],
+	['c', 'c', 'c']
+]
+print(harvest(vegetable_patch))
+
+'''
+Problem 7: Eeyore's House
+Eeyore has collected two piles of sticks to rebuild his house and needs to choose pairs of sticks whose lengths are the right proportion. Write a function good_pairs() that accepts two integer arrays pile1 and pile2 where each integer represents the length of a stick. The function also accepts a positive integer k. The function should return the number of good pairs.
+
+A pair (i, j) is called good if pile1[i] is divisible by pile2[j] * k. Assume 0 <= i <= len(pile1) - 1 and 0 <= j <= len(pile2) - 1.
+
+def good_pairs(pile1, pile2, k):
+	pass
+Example Usage:
+
+pile1 = [1, 3, 4]
+pile2 = [1, 3, 4]
+k = 1
+good_pairs(pile1, pile2, k)
+
+pile1 = [1, 2, 4, 12]
+pile2 = [2, 4]
+k = 3
+good_pairs(pile1, pile2, k)
+Example Output:
+
+5
+2
+
+'''
+
+def good_pairs(pile1, pile2, k):
+	res = 0
+
+	for i in range(len(pile1)):
+		for j in range(len(pile2)):
+			if pile1[i] % (pile2[j]*k) == 0:
+				res += 1
+
+	return res
+
+pile1 = [1, 3, 4]
+pile2 = [1, 3, 4]
+k = 1
+print(good_pairs(pile1, pile2, k))
+
+pile1 = [1, 2, 4, 12]
+pile2 = [2, 4]
+k = 3
+print(good_pairs(pile1, pile2, k))
